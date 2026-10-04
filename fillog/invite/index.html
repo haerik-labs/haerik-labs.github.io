@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FILLOG 초대장</title>
+<meta name="description" content="같은 주제로 7일 동안 한 장씩 사진을 남기고, 서로의 기록을 하나의 추억으로 간직해요.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FILLOG">
+<meta property="og:title" content="FILLOG 초대장">
+<meta property="og:description" content="같은 주제로 7일 동안 한 장씩 사진을 남기고, 서로의 기록을 하나의 추억으로 간직해요.">
+<meta property="og:image" content="https://haerik-labs.github.io/fillog/assets/app_icon.png">
+<link rel="icon" href="/fillog/assets/app_icon.png">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#FDF7F6;color:#434242;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.7;word-break:keep-all;-webkit-text-size-adjust:100%}
+main{max-width:560px;margin:0 auto;padding:40px 20px 56px}
+.card{background:#FEFEFE;border-radius:20px;padding:28px 22px;box-shadow:0 2px 12px rgba(248,113,129,.12)}
+.center{text-align:center}
+.logo{width:88px;height:88px;border-radius:22px;display:block;margin:0 auto 20px}
+h1{margin:0 0 12px;font-size:22px;line-height:1.4;color:#0B0B0C}
+h2{margin:28px 0 8px;font-size:16px;color:#0B0B0C}
+p{margin:0 0 10px;font-size:15px}
+p.sub{margin-top:18px;font-weight:700;color:#0B0B0C}
+p.muted,.muted{color:#8D898B;font-size:13px}
+a{color:#F35F79}
+.btn{display:block;width:100%;margin:20px 0 0;padding:15px 16px;border-radius:14px;background:#F87181;color:#fff;font-size:16px;font-weight:700;text-align:center;text-decoration:none}
+.btn:active{background:#F35F79}
+.btn.ghost{background:#FDF3F2;color:#F35F79}
+.divider{margin:28px 0 0;padding-top:20px;border-top:1px solid #FDF3F2}
+nav.links{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;font-size:13px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<div class="card center">
+<img class="logo" src="/fillog/assets/app_icon.png" alt="FILLOG">
+<h1>친구가 FILLOG에 초대했어요</h1>
+<p>같은 주제로 7일 동안 한 장씩 사진을 남기고,<br>서로의 기록을 하나의 추억으로 간직해요.</p>
+<p id="missing" class="muted" hidden>초대 정보를 찾지 못했어요.<br>친구가 보낸 링크를 다시 확인해주세요.</p>
+<a id="open" class="btn" href="https://play.google.com/store/apps/details?id=com.fillog.fillog">앱에서 열기</a>
+<div class="divider">
+<p>아직 FILLOG 앱이 없으신가요?</p>
+<a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.fillog.fillog">Google Play에서 받기</a>
+</div>
+<p class="muted" style="margin-top:20px">초대 링크는 지금 Android에서만 열 수 있어요.</p>
+</div>
+<nav class="links">
+<a href="/fillog/privacy/">개인정보 처리방침</a>
+<a href="/fillog/terms/">서비스 이용약관</a>
+<a href="/fillog/delete-account/">계정 및 데이터 삭제 안내</a>
+</nav>
+</main>
+<script>
+(function () {
+  var token = new URLSearchParams(location.search).get('token');
+  var open = document.getElementById('open');
+  var missing = document.getElementById('missing');
+  if (!token) {
+    open.hidden = true;
+    missing.hidden = false;
+    return;
+  }
+  var fallback = encodeURIComponent("https://play.google.com/store/apps/details?id=com.fillog.fillog");
+  open.href = 'intent://invite?token=' + encodeURIComponent(token) +
+    '#Intent;scheme=com.fillog.fillog;package=com.fillog.fillog;' +
+    'S.browser_fallback_url=' + fallback + ';end';
+})();
+</script>
+</body>
+</html>

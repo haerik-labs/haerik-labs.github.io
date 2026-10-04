@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.fillog.fillog",
+      "sha256_cert_fingerprints": [
+        "58:5B:87:CD:24:0F:EA:95:C8:41:10:AD:80:F2:CA:46:90:61:66:3F:5A:C8:13:AA:03:0A:2D:5A:C5:6C:B0:0A",
+        "B4:B3:F1:2D:0B:04:E2:F4:9F:D1:D6:6F:B5:39:7E:EE:10:C6:53:7F:31:3E:0C:67:3F:F4:63:C3:DD:EF:C5:24"
+      ]
+    }
+  }
+]
